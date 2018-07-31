@@ -1,0 +1,73 @@
+
+<div class="container">
+  <div class="col-sm-12">
+	  	<form>
+		    <div class="form-group"> 
+					<div class="col-sm-6">
+						<div class="panel-group">
+  								<div class="panel panel-info">
+    								<div class="panel-body">	
+											<h4>Select a Payment Amount</h4>
+						  					<h6>Choose from the available options below or enter "Other Amount"</h6>	
+						  					<div class="panel-group">
+  												<div class="panel">
+    											<div *ngFor="let data of datalist | slice:CardNumber:CardNumber+1" class="panel-body">	 
+								           		 	<div class="radio">
+								              		<input type="radio" name="rd1" id="rd1" value="1">
+								              			<label> Payment Due
+								                				<h5> {{ data.minimumDueAmount | currency:'USD':true}}</h5>
+								                				<p><small>Pay your New Balance showing on your most recent billing statement adjusted for payments, returned payments, applicable credits and disputes since your last statement closing date</small></p>
+								              			</label>
+								            		</div>
+								            		<div class="radio">
+								              			<input type="radio" name="rd1" id="rd1" value="2">
+								              			<label> Total Balance
+								                			   <h5> {{ data.outstandingBalance | currency:'USD':true}}</h5>
+								                				<p><small>Pay the full balance on your account adjusted for payments,
+								                				returned payments, credits and transactions since your last
+								                				statement closing date.</small></p>
+								              			</label>
+								            		</div>
+								            		<div class="radio">
+								              			<input type="radio" name="rd1" id="rd1" value="3" checked>
+								              			<label> Other
+								                				<p><small>Enter your desired payment amount.</small></p>
+								                				<input type=number name=paymentamount>
+								              			</label>
+								              		</div>
+								            	</div>
+								              	</div>
+								            </div> 
+			   						</div>
+			   					</div>
+			   				</div>
+			   			</div>
+
+			   			
+					<div class="col-sm-6">
+						<div class="panel-group">
+  								<div class="panel panel-info">
+    								<div class="panel-body">
+    										<h4>Bank Account</h4>
+	  										<h5>Citi Bank</h5>
+	  										<h6>Personal Checking - 1234</h6>
+	  								</div>		
+  								</div>
+						</div>	
+						<div class="panel-group">
+  								<div class="panel panel-info">
+    								<div class="panel-body">
+    										<h4>Make my next payment on:</h4>
+	  										<input type=date name=paymentdate>
+	  										<p><small>Payments received after 8:00 p.m. EST may not be credited until the next day.</small></p>
+			   								<button type="button" class="btn btn-success">Submit Payment</button>
+	  								</div>		
+  								</div>
+						</div>
+			   </div>
+			</div>   		
+	  	</form>
+ </div> 
+</div>
+
+<router-outlet></router-outlet>

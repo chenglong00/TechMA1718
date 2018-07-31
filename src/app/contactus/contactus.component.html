@@ -1,0 +1,93 @@
+ <div class="container">
+ <h4>Please send us your questions.  We will respond via email or phone.</h4>
+ <p>
+ <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+ <div class="col-sm-12 form-group">
+      <div class="row">
+
+                <label>
+                  <span>What is your full name?</span>
+                  <input class="form-control"
+                    type="text"
+                    size="40"
+                    placeholder="Enter your first and last name"
+                    name="name"
+                    ngModel
+                    #userName="ngModel"
+                    minlength="2"
+                    required>
+                </label> 
+           </div>
+      <div *ngIf="userName.errors?.required && userName.touched" class="error">Name is required</div>
+      <div *ngIf="userName.errors?.minlength && userName.touched" class="error">Minimum of 2 characters</div>
+      <div class="row">  
+            <div ngModelGroup="account" #userAccount="ngModelGroup">
+            <label>
+              <span>What is your primary email address?</span>
+              <input class="form-control"
+                type="email"
+                size="40"
+                placeholder="Your email address"
+                name="email"
+                ngModel
+                #userEmail="ngModel"
+                required>
+            </label>
+            </div> 
+      </div>       
+       <div class="row">     
+            <div ngModelGroup="account" #userAccount="ngModelGroup">           
+            <label>
+              <span>Please confirm your email address</span>
+              <input class="form-control"
+                type="email"
+                size="40"
+                placeholder="Confirm your email address"
+                name="confirm"
+                ngModel
+                #userConfirm="ngModel"
+                required>
+            </label>
+            </div> 
+      </div> 
+      <div *ngIf="userAccount.invalid && userAccount.touched" class="error">Both emails are required</div>
+
+      
+      <div class="row">  
+            <div ngModelGroup="account" #userAccount="ngModelGroup">
+            <label>
+              <span>What is your daytime phone number?</span>
+              <input class="form-control"
+                type="text"
+                size="40"
+                placeholder="321-123-4567"
+                name="phone"
+                ngModel
+                #userPhone="ngModel"
+                >
+            </label>
+            </div>
+      </div> 
+      <div class="row">    
+            <div ngModelGroup="account" #userAccount="ngModelGroup">            
+            <label>
+              <span>What are your questions?</span>
+              <textarea class="form-control" rows="7" style="width:350px;"
+                placeholder=""
+                name="question"
+                ngModel
+                #userQuestion="ngModel"
+                ></textarea>
+            </label>
+            </div>
+      </div>  
+      <div class="row">       
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit your Questions</button>
+      </div> 
+</div>      
+</form>
+</div>
+
+
+
+

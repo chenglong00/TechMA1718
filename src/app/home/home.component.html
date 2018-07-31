@@ -1,0 +1,68 @@
+<div class="container"> 
+      <div class="col-sm-4">
+      <nav class="navbar navbar-light" style="background-color: white;">
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+               <li class="dropdown" appDropdown>
+                            <a style="cursor: pointer;" class="dropdown-toggle" role="button">Select a Card</a>
+                            <ul class="dropdown-menu"> 
+                                <li *ngFor="let data of datalist; let i = index"><a style="cursor: pointer;" (click)="onSetCard(i)" [class.active]="i == selectedRow">{{data.productName}}</a></li>
+                            </ul>
+               </li>
+            </ul>   
+        </div>
+      </nav>
+      </div>
+</div>
+<div *ngFor="let data of datalist | slice:CardNumber:CardNumber+1" class="panel-body">   
+    <div class="container"> 
+        <div class="col-sm-6">
+            <div> <h4>{{ data.productName }} </h4></div>
+            <div>
+                <img src="{{imageroute}}{{data.productName}}{{'.jpg'}}" width="229" height="144">
+            </div>
+        </div>
+    </div>   
+      <p></p>
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="card card-outline-primary text-center">
+            <div class="card-block">
+              <h4 class="card-title">Remaining Statement Balance</h4>
+              <h3 class="card-text"> {{ data.outstandingBalance | currency:'USD':true }} </h3>
+              <h4 class="card-title">Available Credit</h4>
+              <p class="card-text"> {{ data.availableCredit | currency:'USD':true }} </p>   
+              <h4 class="card-title">Account ID</h4>
+              <p class="card-text"> {{ data.accountId }} </p>   
+              <button type="button" class="btn btn-primary">Card Activity</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card card-outline-primary text-center">
+            <div class="card-block">
+              <h4 class="card-title">Payment required at this time</h4>
+              <h3 class="card-text"> {{ data.minimumDueAmount | currency:'USD':true}} </h3>
+              <h4 class="card-title">Payment Due Date</h4>
+              <p class="card-text"> {{ data.paymentDueDate }} </p>    
+              <h4 class="card-title">Account Status</h4>
+              <p class="card-text"> {{ data.accountStatus }} </p>    
+              <a routerLink="/payments" class="btn btn-primary">Make Payment</a>
+            </div>
+          </div>
+         </div> 
+         <div class="col-sm-4">
+          <div class="card card-outline-success text-center">
+            <div class="card-block">
+              <h4 class="card-title">Membership reward points</h4>
+              <h3 class="card-text"> {{ data.rewardPoints | number:0 }} </h3>
+              <h4 class="card-title">Suggested for You</h4>
+              <p class="card-text">The Summer Sale is On!</p>  
+              <h4 class="card-title">10% Off $50 Gift Cards</h4>       
+              <p class="card-text">See where you can go with points!!!</p>         
+              <a href="https://www.thankyou.com/cms/thankyou" class="btn btn-success">Explore Rewards</a>
+            </div>
+          </div>
+        </div> 
+    </div>
+</div>

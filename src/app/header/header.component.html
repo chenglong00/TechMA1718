@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src={{banner}} height="40">
+    </div>
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand">{{ title }}</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/retrieve">Home</a></li>
+        <li routerLinkActive="active"><a routerLink="/payments">Payments</a></li>
+        <li routerLinkActive="active"><a routerLink="/dan">Dan</a></li>
+        <li><a href="https://www.cardbenefits.citi.com/">Benefits</a></li>
+        <li routerLinkActive="active"><a routerLink="/contactus">Contact Us</a></li>        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/login">Logoff</a></li>    
+      </ul>
+    </div>
+  </div>
+</nav>
